@@ -95,18 +95,6 @@ with mp_hands.Hands(
                     mouse.release(Button.left)
                     print("Mouse Rilasciato")
 
-                # --- CALCOLO CLICK DESTRO (Alzata di pollice) ---
-                # Se la punta del pollice è sensibilmente più "in alto" della sua base Y
-                if thumb_tip.y < thumb_mcp.y - 0.05 and not is_right_clicked and not is_clicked:
-                    is_right_clicked = True
-                    mouse.press(Button.right)
-                    mouse.release(Button.right)
-                    print("Click Destro Eseguito")
-                    
-                # Rilascia lo stato destro quando abbassa il pollice
-                elif thumb_tip.y >= thumb_mcp.y - 0.03 and is_right_clicked:
-                    is_right_clicked = False
-
                 # Testo debug visivo sulla finestra della cam
                 stato_click = "CLICCATO/DRAG" if is_clicked else "Libero"
                 colore = (0, 0, 255) if is_clicked else (0, 255, 0) # Rosso o Verde
